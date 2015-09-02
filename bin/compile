@@ -21,12 +21,12 @@ DEPS_ARCHIVE_NAME=app/vendor/libreoffice/deps
 mkdir -p $CACHE_DIR
 if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
   echo "-----> LibreOffice: Downloading LibreOffice ${VERSION} binaries from ${BUILDPACK_LIBREOFFICE_PACKAGE}"
-  curl -L $BUILDPACK_LIBREOFFICE_PACKAGE -o $CACHE_DIR/$FILE_NAME
+  curl -L $BUILDPACK_LIBREOFFICE_PACKAGE -o $CACHE_DIR/$FILE_NAME.gz
 fi
 
 if ! [ -e $CACHE_DIR/$DEPS_FILE_NAME ]; then
   echo "-----> LibreOffice: Downloading LibreOffice dependencies (gettext, dbus, libffi, glib, dbus-glib) from ${DEPS_BUILDPACK_LIBREOFFICE_PACKAGE}"
-  curl -L $DEPS_BUILDPACK_LIBREOFFICE_PACKAGE -o $CACHE_DIR/$DEPS_FILE_NAME
+  curl -L $DEPS_BUILDPACK_LIBREOFFICE_PACKAGE -o $CACHE_DIR/$DEPS_FILE_NAME.gz
 fi
 
 echo "-----> LibreOffice: Extracting LibreOffice ${VERSION} binaries to ${BUILD_DIR}/vendor/libreoffice"
